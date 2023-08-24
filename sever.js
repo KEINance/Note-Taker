@@ -81,6 +81,22 @@ const handleNoteSave = () => {
   };
   
 //note delete
-
+const handleNoteDelete = (e) => {
+    e.stopPropogation();
+  
+    const note = e.target;
+    const noteId = JSON.parse(note.parentElemant.getAttribute("data-note")).id;
+  
+    if (activeNote.id === noteId) {
+      activeNote = {};
+    }
+      deleteNote(noteId).then(() => {
+        getAndRenderNotes();
+        renderActiveNotes();
+      })
+      .catch((err) => {
+      console.log("Note was not deleted", err);
+    });
+  };
 //add event listener
 //view note
