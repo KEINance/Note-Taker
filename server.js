@@ -17,11 +17,11 @@ app.listen(PORT, () => {
 });
 //api routing app.get
 app.get("/", (req, res) => {
-  res.sendFile("./public/index.html", { root: __dirname });
+  res.sendFile("./public/assets/index.html", { root: __dirname });
 });
 
 app.get("/note", (req, res) => {
-  res.sendFile("./public/note.html", { root: __dirname });
+  res.sendFile("./public/assets/notes.html", { root: __dirname });
 });
 
 app.get("/api/note", (req, res) => {
