@@ -48,7 +48,21 @@ app.post("/api/note", (req, res) => {
     }
   });
 //app.delete
-
+app.delete("/api/note/:id", (req, res) => {
+    try {
+      const db = path.join(__dirname, "./db/db.json");
+      const notes = JSON.parse(fs.readFileSync(db, "utf8"));
+      const noteId = req.params.id;
+      const updatedNotes = notes.filter(
+        (note) => note.id !== noteId);
+      fs.writeFileSync(db, JSON.stringify(updatedNotes));
+      // console.log("Deleted note.");
+      res.sendStatus(200);
+    } catch (err) {
+      console.log("Note was not deleted", err);
+      res.sendStatus(500).send("Server unable to implement delete.");
+    }
+  });
 //connection
 //note delete
 
