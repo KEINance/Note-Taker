@@ -39,11 +39,8 @@ The following images show the web application's appearance and functionality:
 
 ## Links
 
-GitHub:
-https://github.com/KEINance
+[GitHub](https://github.com/KEINance)
 
-GitHub Repo: 
-https://github.com/KEINance/Note-Taker
+[GitHub Repo](https://github.com/KEINance/Note-Taker)
 
-Deployed Link:
-https://keinance.github.io/Note-Taker/
+[Deployed Link](https://keinance.github.io/Note-Taker/)
