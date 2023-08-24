@@ -100,3 +100,14 @@ const handleNoteDelete = (e) => {
   };
 //add event listener
 //view note
+
+const handleNoteView = (e) => {
+    e.preventDefault();
+    activeNote = JSON.parse(e.target.parentElement.getAttribute("data-note"));
+    renderActiveNote();
+  };
+  
+  const handleNewNoteView = (e) => {
+      activeNote = {};
+      renderActiveNote();
+  }
