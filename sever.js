@@ -15,9 +15,14 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Aces your server is jammin' on port ${PORT}`);
 });
-//api routing
-//app.get
-
+//api routing app.get
+app.get("/", (req, res) => {
+    res.sendFile("./public/index.html", { root: __dirname });
+  });
+  
+  app.get("/note", (req, res) => {
+    res.sendFile("./public/note.html", { root: __dirname });
+  });
 //app.post
 
 //app.delete
