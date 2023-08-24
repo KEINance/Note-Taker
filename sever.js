@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //create port
-
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Aces your server is jammin' on port ${PORT}`);
+});
 //api routing
 //app.get
 
