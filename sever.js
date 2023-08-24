@@ -23,8 +23,30 @@ app.get("/", (req, res) => {
   app.get("/note", (req, res) => {
     res.sendFile("./public/note.html", { root: __dirname });
   });
-//app.post
 
+  app.get("/api/note", (req, res) => {
+    const db = path.join(__dirname, "./db/db.json");
+    const notes = JSON.parse(fs.readFileSync(db, "utf8"));
+    res.json(notes);
+  });
+//app.post
+app.post("/api/note", (req, res) => {
+    try {
+      const db = path.join(__dirname, "./db/db.json");
+      const notes = JSON.parse(fs.readFileSync(db, "utf8"));
+      const newNote = {
+        title: req.body.title,
+        text: req.body.text,
+        id: uuidv4(),
+      };
+      notes.push(newNote);
+      fs.writeFileSync(db, JSON.stringify(notes));
+      res.json(newNote);
+    } catch (err) {
+      console.log("Note was not deleted", err);
+      res.status(500).send("Server unable to implement delete.");
+    }
+  });
 //app.delete
 
 //connection
