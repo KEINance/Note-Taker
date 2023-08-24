@@ -64,6 +64,22 @@ app.delete("/api/note/:id", (req, res) => {
     }
   });
 //connection
+const handleNoteSave = () => {
+    try {
+      const newNote = {
+        title: noteTitle.value,
+        text: noteText.value,
+      };
+      saveNote(newNote).then(() => {
+        getAndRenderNotes();
+          renderActiveNote();
+      });
+    } catch (err) {
+      console.log("Note was not Saved", err);
+      res.statusCode(500).send("Server unable to implement save.");
+    }
+  };
+  
 //note delete
 
 //add event listener
